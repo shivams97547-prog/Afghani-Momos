@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AFGHANI MOMOS • The Royal Culinary Experience</title>
+  <meta name="description" content="Experience the art of artisanal Afghani Momos through an immersive, high-definition 60FPS scroll-driven cinematic journey.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥟</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS v3 with Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#09090B',
+              surface: '#121214',
+              card: '#16161A',
+              border: '#27272F',
+              flame: '#FF4D15',
+              amber: '#FF9900',
+              crimson: '#EF4444',
+              lava: '#DC2626',
+              chili: '#f43f5e',
+              cream: '#FFF7ED',
+              curd: '#f8fafc',
+              obsidian: '#0b0f19',
+              slate: '#0f172a',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-flame': '0 0 50px -8px rgba(239, 68, 68, 0.55)',
+            'glow-crimson': '0 0 45px -6px rgba(220, 38, 38, 0.5)',
+            'glow-lava': '0 0 60px -10px rgba(255, 77, 21, 0.45)',
+            'glow-chili': '0 0 35px -5px rgba(244, 63, 94, 0.4)',
+            'glow-cream': '0 0 35px -10px rgba(254, 243, 199, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style data-purpose="animations">
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1.2deg); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.95; }
+    }
+    .animate-float {
+      animation: floatGentle 5s ease-in-out infinite;
+    }
+  </style>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader-overlay">
+    <div class="loader-content">
+      <div class="loader-emblem">
+        <span class="emblem-dumpling">🥟</span>
+        <div class="loader-ring"></div>
+        <div class="loader-pulse"></div>
+      </div>
+      <h2 class="loader-brand">AFGHANI MOMOS</h2>
+      <p class="loader-tagline">ROYAL FLAVOR ARCHITECTURE</p>
+      
+      <div class="progress-bar-wrap">
+        <div id="progress-bar" class="progress-bar-fill"></div>
+      </div>
+      
+      <div class="loader-status">
+        <span id="load-count">0</span> / 240 FRAMES BUFFERED (<span id="load-percent">0%</span>)
+      </div>
+      <p class="loader-hint">Buffering 60FPS high-speed culinary frames...</p>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <span class="brand-badge">AFGHANI</span>
+        <span class="brand-title">MOMOS<span class="brand-dot">.</span></span>
+      </div>
+
+      <!-- Quick Chapter Nav -->
+      <nav class="nav-chapters">
+        <button class="chapter-btn active" data-step="0">01. Sauce</button>
+        <button class="chapter-btn" data-step="0.32">02. Plunge</button>
+        <button class="chapter-btn" data-step="0.65">03. Dual</button>
+        <button class="chapter-btn" data-step="0.92">04. Crown</button>
+        <a class="chapter-btn" style="text-decoration:none;" href="#menu">Menu</a>
+        <a class="chapter-btn" style="text-decoration:none;" href="#sauce-secret">Secret Sauce</a>
+        <a class="chapter-btn" style="text-decoration:none;" href="#stall-story">Stall Legend</a>
+        <a class="chapter-btn" style="text-decoration:none;" href="#location">Find Stall</a>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Multi-Speed Selector -->
+        <div class="speed-selector" id="speed-selector" title="Choose Animation Speed">
+          <span class="speed-selector-label">SPEED:</span>
+          <button class="speed-pill" data-speed="1" title="1x Cinematic Pace (3.5s)">1x</button>
+          <button class="speed-pill" data-speed="2" title="2x Fast Pace (1.8s)">2x</button>
+          <button class="speed-pill active" data-speed="4" title="4x Turbo Speed (Smooth & Snappy)">4x Turbo</button>
+          <button class="speed-pill" data-speed="8" title="8x Hyper Speed (Ultra Fast)">8x ⚡</button>
+        </div>
+
+        <button id="cursor-scrub-btn" class="btn-secondary" title="Hover & Move mouse across screen to scrub frames instantly at your own hand speed">
+          <span class="icon">🖱️</span>
+          <span id="cursor-scrub-label">Cursor Scrub</span>
+        </button>
+
+        <button id="nav-sound-btn" class="btn-secondary" title="Toggle Sizzle Sound FX">
+        <button id="cart-btn" class="btn-secondary" title="View Cart"><span class="icon">🛒</span><span id="cart-count" class="ml-1">0</span></button>
+          <span class="sound-icon" id="sound-icon">🔈</span>
+          <span id="sound-label">Sizzle: OFF</span>
+        </button>
+
+        <button id="autoplay-btn" class="btn-secondary active-glow" title="Auto Play Animation Loop">
+          <span class="icon" id="play-icon">▶</span>
+          <span id="play-label">Auto Sequence</span>
+        </button>
+
+        <button id="nav-replay-btn" class="btn-primary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Replay from Beginning">
+          <span>Replay</span>
+          <span class="arrow">↺</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scroll Canvas Track & Website Content -->
+  <main>
+    <section id="hero-track" class="hero-scroll-track">
+      <div class="canvas-sticky-wrapper">
+        
+        <!-- High-Performance Canvas -->
+        <canvas id="momo-canvas" class="momo-canvas"></canvas>
+
+        <!-- Cinematic Vignette Overlay -->
+        <div class="cinematic-vignette"></div>
+
+        <!-- Hero Intro Overlay (Heading & Subheading - Fades at 30% scroll) -->
+        <div class="hero-intro-overlay" id="hero-intro">
+          <div class="hero-intro-content">
+            <div class="hero-intro-badge">
+              <span>🔥</span>
+              <span>KANKARBAGH, PATNA'S STREET BENCHMARK</span>
+            </div>
+            <h1 class="hero-intro-title">
+              AFGHANI <span class="text-gradient-fire">MOMOS</span>
+            </h1>
+            <p class="hero-intro-subtitle">
+              "My momos are <span class="text-gradient-fire">hotter than your ex</span>, better than your next."
+            </p>
+          </div>
+        </div>
+
+        <!-- HUD Telemetry Display (Top Right) -->
+        <div class="hud-telemetry">
+          <div class="hud-card">
+            <div class="hud-row">
+              <span class="hud-label">FRAME</span>
+              <span class="hud-val" id="hud-frame">001 / 240</span>
+            </div>
+            <div class="hud-row">
+              <span class="hud-label">SCROLL</span>
+              <span class="hud-val" id="hud-percent">0%</span>
+            </div>
+            <div class="hud-row">
+              <span class="hud-label">SPEED</span>
+              <span class="hud-val hud-speed-highlight" id="hud-speed">4x TURBO</span>
+            </div>
+            <div class="hud-progress-line">
+              <div class="hud-progress-fill" id="hud-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story Beat Overlays (Fade In/Out on synchronized scroll positions) -->
+        <div class="story-container">
+
+          <!-- Beat 2: Frame 60 - 125 -->
+          <article class="story-card" id="beat-2">
+            <span class="beat-badge">ACT II • THE COLLISION</span>
+            <h2 class="beat-title">Gravity Meets Gastronomy</h2>
+            <p class="beat-desc">
+              Steamed thin-crust dumplings plunge deep into the spicy bath, erupting in radiant crimson crown splashes captured at 1,000 FPS.
+            </p>
+            <div class="beat-tags">
+              <span class="tag">✦ 1000 FPS Capture</span>
+              <span class="tag">✦ Juicy Tender Dumplings</span>
+              <span class="tag">✦ Saffron Kissed</span>
+            </div>
+          </article>
+
+          <!-- Beat 3: Frame 130 - 195 -->
+          <article class="story-card" id="beat-3">
+            <span class="beat-badge">ACT III • TEXTURAL HARMONY</span>
+            <h2 class="beat-title">Kurkure Crunch Meets Steamed Silk</h2>
+            <p class="beat-desc">
+              Suspended in zero-gravity: golden panko-crusted crispy Afghani momos alongside delicate translucent steamed jewels, revealing succulent smoked fillings.
+            </p>
+            <div class="beat-tags">
+              <span class="tag">✦ Panko Golden Crust</span>
+              <span class="tag">✦ Smoked Mince Infusion</span>
+              <span class="tag">✦ Melt-in-Mouth Silk</span>
+            </div>
+          </article>
+
+          <!-- Beat 4: Frame 200 - 240 -->
+          <article class="story-card" id="beat-4">
+            <span class="beat-badge">ACT IV • THE ROYAL CORONATION</span>
+            <h2 class="beat-title">Crowned For The Connoisseur</h2>
+            <p class="beat-desc">
+              Garnished with hand-picked organic cilantro, red chili medallions, and aromatic spice dust. The ultimate Afghani dumpling legacy is served.
+            </p>
+            <div class="beat-tags">
+              <span class="tag">✦ Ready to Indulge</span>
+              <span class="tag">✦ Signature House Dip</span>
+              <span class="tag">✦ Chef's Masterpiece</span>
+            </div>
+            <div style="margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="#menu" class="btn-primary" style="text-decoration: none;" title="Explore Full Menu">
+                <span>Explore Full Menu</span>
+                <span class="arrow">↓</span>
+              </a>
+              <button class="btn-secondary" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Replay from start">
+                <span>Replay</span>
+                <span class="arrow">↺</span>
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Scroll Indicator Floating Cue (Bottom Center) -->
+        <div class="scroll-cue" id="scroll-cue">
+          <div class="mouse-icon">
+            <div class="wheel"></div>
+          </div>
+          <span class="scroll-label">SCROLL DOWN TO ANIMATE</span>
+        </div>
+
+        <!-- Interactive Scrub Slider Bar (Bottom of Sticky Viewport) -->
+        <div class="timeline-scrubber-bar">
+          <div class="act-bar-meta">
+            <span class="act-bar-tag">ACT SEQUENCE</span>
+            <span class="act-bar-current" id="act-indicator">ACT I • THE IMMERSION</span>
+          </div>
+          <div class="timeline-track" id="timeline-track">
+            <div class="timeline-fill" id="timeline-fill"></div>
+            <div class="timeline-handle" id="timeline-handle"></div>
+            
+            <!-- Milestone Markers -->
+            <button class="marker active" style="left: 0%;" data-step="0" title="Act I: The Sauce"></button>
+            <button class="marker" style="left: 32%;" data-step="0.32" title="Act II: The Plunge"></button>
+            <button class="marker" style="left: 65%;" data-step="0.65" title="Act III: Dual Textures"></button>
+            <button class="marker" style="left: 95%;" data-step="0.95" title="Act IV: The Crown"></button>
+          </div>
+          <div class="timeline-labels">
+            <span class="ch-label active" data-step="0">01 The Sauce</span>
+            <span class="ch-label" data-step="0.32">02 The Plunge</span>
+            <span class="ch-label" data-step="0.65">03 Dual Textures</span>
+            <span class="ch-label" data-step="0.95">04 The Crown</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BEGIN: StreetCredBar -->
+    <section class="border-y border-brand-border bg-brand-surface/70 relative z-20 py-6" data-purpose="stats-strip">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-brand-border/80">
+          <div class="pt-3 md:pt-0">
+            <p class="text-3xl font-extrabold font-display text-white">10,000+</p>
+            <p class="text-xs text-zinc-400 uppercase tracking-wider font-semibold mt-1">Momos Folded Daily</p>
+          </div>
+          <div class="pt-3 md:pt-0">
+            <p class="text-3xl font-extrabold font-display text-brand-crimson flex items-center justify-center gap-1.5">
+              4.8 <i class="fa-solid fa-star text-amber-400 text-xl"></i>
+            </p>
+            <p class="text-xs text-zinc-400 uppercase tracking-wider font-semibold mt-1">Over 5,000+ Reviews</p>
+          </div>
+          <div class="pt-3 md:pt-0">
+            <p class="text-3xl font-extrabold font-display text-white">#1 Viral</p>
+            <p class="text-xs text-zinc-400 uppercase tracking-wider font-semibold mt-1">Street Spot in Kankarbagh</p>
+          </div>
+          <div class="pt-3 md:pt-0">
+            <p class="text-3xl font-extrabold font-display text-brand-flame">100% Fresh</p>
+            <p class="text-xs text-zinc-400 uppercase tracking-wider font-semibold mt-1">No Frozen Batches Ever</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: StreetCredBar -->
+
+    <!-- BEGIN: SignatureMenu -->
+    <section class="py-24 relative bg-brand-dark" data-purpose="food-menu" id="menu">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-crimson/15 border border-brand-crimson/30 text-brand-crimson text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-utensils"></i> Authentic Stall Pricing & Specials
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black font-display text-white tracking-tight">
+            The Real Counter Menu
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg">
+            Straight off the iconic signboard hanging at our Kankarbagh stall. Honest prices, piping hot cravings, and our viral VIP mystery platters.
+          </p>
+        </div>
+
+        <!-- Full-Width Menu Sections -->
+        <div class="space-y-8 mb-16">
+          <!-- Category 1: Classic & Kurkure Favorites (Half / Full Plate) -->
+          <div class="bg-brand-card rounded-3xl border border-brand-border p-6 sm:p-8 relative overflow-hidden shadow-xl">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-brand-border/80">
+              <div>
+                <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-flame mb-1">
+                  <i class="fa-solid fa-leaf text-emerald-400"></i> Daily Favorites
+                </div>
+                <h3 class="text-2xl font-bold font-display text-white">Classic & Kurkure Momos</h3>
+              </div>
+              <div class="flex items-center gap-4 text-xs font-bold uppercase tracking-wider text-zinc-400">
+                <span class="px-2.5 py-1 bg-brand-surface rounded border border-brand-border">Half Plate</span>
+                <span class="px-2.5 py-1 bg-brand-crimson/15 text-brand-crimson rounded border border-brand-crimson/30">Full Plate</span>
+              </div>
+            </div>
+
+            <!-- Expanded Two-Column Grid for Items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 divide-y md:divide-y-0 divide-brand-border/60">
+              <!-- Item 1 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-white">Veg Momo Steam</h4>
+                    <p class="text-xs text-zinc-400">Classic juicy minced veggies steamed soft</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹25</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹50</span>
+                <button class="btn-primary add-to-cart" data-name="Veg Momo Steam" data-price="50">Add to Cart</button>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-white">Veg Momo Fried</h4>
+                    <p class="text-xs text-zinc-400">Golden crisp fried exterior, tender veggie core</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹30</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹60</span>
+                <button class="btn-primary add-to-cart" data-name="Veg Momo Fried" data-price="60">Add to Cart</button>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h4 class="text-sm sm:text-base font-bold text-white">Veg Kurkure Momo</h4>
+                      <span class="text-[10px] font-black uppercase px-2 py-0.5 bg-brand-crimson text-white rounded-full">Bestseller</span>
+                    </div>
+                    <p class="text-xs text-zinc-400">Deep crunch cornflake batter with spiced filling</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹50</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹80</span>
+                <button class="btn-primary add-to-cart" data-name="Veg Kurkure Momo" data-price="80">Add to Cart</button>
+                </div>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-white">Paneer Corn Momo Steam</h4>
+                    <p class="text-xs text-zinc-400">Fresh Malai Paneer cubes with sweet golden corn</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹35</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹70</span>
+                <button class="btn-primary add-to-cart" data-name="Paneer Corn Momo Steam" data-price="70">Add to Cart</button>
+                </div>
+              </div>
+
+              <!-- Item 5 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-white">Paneer Corn Momo Fried</h4>
+                    <p class="text-xs text-zinc-400">Hot wok-crisped paneer & juicy sweet corn dumplings</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹40</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹80</span>
+                <button class="btn-primary add-to-cart" data-name="Paneer Corn Momo Fried" data-price="80">Add to Cart</button>
+                </div>
+              </div>
+
+              <!-- Item 6 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-brand-crimson flex-shrink-0"></span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-white">Chicken Momo Steam</h4>
+                    <p class="text-xs text-zinc-400">Seasoned minced chicken steamed in paper-thin dough</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹40</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹80</span>
+                </div>
+              </div>
+
+              <!-- Item 7 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-brand-crimson flex-shrink-0"></span>
+                  <div>
+                    <h4 class="text-sm sm:text-base font-bold text-white">Chicken Momo Fried</h4>
+                    <p class="text-xs text-zinc-400">Flame fried golden chicken dumplings with chili dip</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹45</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹80</span>
+                <button class="btn-primary add-to-cart" data-name="Chicken Momo Fried" data-price="80">Add to Cart</button>
+                </div>
+              </div>
+
+              <!-- Item 8 -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors border-b border-brand-border/50">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-brand-crimson flex-shrink-0"></span>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h4 class="text-sm sm:text-base font-bold text-white">Chicken Kurkure Momo</h4>
+                      <span class="text-[10px] font-black uppercase px-2 py-0.5 bg-brand-lava text-white rounded-full">Super Crisp</span>
+                    </div>
+                    <p class="text-xs text-zinc-400">Heavy crunch crust enclosing spiced tender chicken</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 font-mono font-bold text-sm sm:text-base">
+                  <span class="text-zinc-400">₹65</span>
+                  <span class="text-zinc-600">/</span>
+                  <span class="text-brand-flame">₹120</span>
+                <button class="btn-primary add-to-cart" data-name="Chicken Kurkure Momo" data-price="120">Add to Cart</button>
+                <button class="btn-primary add-to-cart" data-name="Chicken Momo Steam" data-price="120">Add to Cart</button>
+                </div>
+              </div>
+
+              <!-- Item 9 (Full Width Span across 2 cols) -->
+              <div class="py-3.5 flex items-center justify-between hover:bg-brand-surface/60 px-3 rounded-xl transition-colors md:col-span-2">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></span>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h4 class="text-sm sm:text-base font-bold text-white">Cheese Corn Kurkure Momo</h4>
+                      <span class="text-[10px] font-black uppercase px-2 py-0.5 bg-brand-crimson text-white rounded-full">Cheese Melt</span>
+                    </div>
+                    <p class="text-xs text-zinc-400">Gooey melted cheese core with crisp golden shell</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 font-mono font-bold text-sm sm:text-base text-brand-flame">
+                  <span class="text-xs text-zinc-400 font-sans font-medium uppercase">Only</span>
+                  <span class="">₹99/-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Afghani Momo Special (Full width 4-card grid) -->
+          <div class="bg-brand-card rounded-3xl border border-brand-crimson/40 p-6 sm:p-8 relative overflow-hidden bg-gradient-to-br from-brand-card via-brand-surface to-brand-card shadow-xl">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-brand-border/80">
+              <div>
+                <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-flame mb-1">
+                  <i class="fa-solid fa-fire-burner"></i> Special Tandoori & Cream Toss
+                </div>
+                <h3 class="text-2xl font-bold font-display text-white">Afghani Momo Special</h3>
+              </div>
+              <span class="px-3 py-1 bg-brand-crimson/20 text-brand-crimson text-xs font-bold rounded-full border border-brand-crimson/40 uppercase">
+                Signature Recipe
+              </span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="p-5 rounded-2xl bg-brand-surface border border-brand-border hover:border-brand-crimson/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-base font-bold text-white">Paneer Corn Steam Momo</h4>
+                  <p class="text-xs text-zinc-400 mt-1">Rich Afghani spiced butter bath</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-xs text-zinc-500 uppercase font-semibold">Tandoori Toss</span>
+                  <span class="font-mono font-bold text-lg text-brand-flame">₹70/-</span>
+                </div>
+              </div>
+              <div class="p-5 rounded-2xl bg-brand-surface border border-brand-border hover:border-brand-crimson/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-base font-bold text-white">Chicken Fried Momo</h4>
+                  <p class="text-xs text-zinc-400 mt-1">Crispy fried tossed in Afghani cream</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-xs text-zinc-500 uppercase font-semibold">Tandoori Toss</span>
+                  <span class="font-mono font-bold text-lg text-brand-flame">₹80/-</span>
+                </div>
+              </div>
+              <div class="p-5 rounded-2xl bg-brand-surface border border-brand-border hover:border-brand-crimson/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-base font-bold text-white">Chicken Kurkure Momo</h4>
+                  <p class="text-xs text-zinc-400 mt-1">Crunchy coating glazed with tandoori dip</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-xs text-zinc-500 uppercase font-semibold">Tandoori Toss</span>
+                  <span class="font-mono font-bold text-lg text-brand-flame">₹120/-</span>
+                </div>
+              </div>
+              <div class="p-5 rounded-2xl bg-brand-surface border border-brand-border hover:border-brand-crimson/50 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-base font-bold text-white">Cheese Corn Kurkure Momo</h4>
+                  <p class="text-xs text-zinc-400 mt-1">Gooey mozzarella burst with Afghani spice</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-xs text-zinc-500 uppercase font-semibold">Tandoori Toss</span>
+                  <span class="font-mono font-bold text-lg text-brand-flame">₹99/-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: For VIP Customers (Humor Menu from Board) -->
+          <div class="bg-gradient-to-tr from-brand-crimson/25 via-brand-card to-brand-card rounded-3xl border border-brand-crimson/50 p-6 sm:p-8 relative overflow-hidden shadow-glow-crimson">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-brand-border/80">
+              <div>
+                <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-crimson mb-1">
+                  <span class="">👑</span> Viral Stall Humor
+                </div>
+                <h3 class="text-2xl font-bold font-display text-white flex items-center gap-2">
+                  For <span class="text-brand-crimson">VIP Customers</span>
+                </h3>
+              </div>
+              <div class="px-3.5 py-1.5 rounded-full bg-brand-crimson text-white text-xs font-bold uppercase tracking-wide flex items-center gap-1.5 shadow-md">
+                <i class="fa-solid fa-star text-[10px]"></i> Full Plate Only
+              </div>
+            </div>
+
+            <!-- Cheeky helper badge -->
+            <div class="mb-6 p-4 rounded-2xl bg-brand-dark/90 border border-brand-crimson/40 flex items-start sm:items-center gap-3 text-xs text-zinc-300">
+              <span class="text-2xl flex-shrink-0">😜</span>
+              <p class="leading-relaxed">
+                <strong class="text-brand-flame font-semibold">Can't decide?</strong> "Kuch Bhi" ya "Kuch Nahi"? Let the chef surprise you with our secret VIP platters piled high with mixed fried, steamed, and crunchy specials!
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div class="p-4 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-crimson/60 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-white">Kuch Nahi</h4>
+                  <p class="text-[11px] text-zinc-400 mt-1">Chef's Secret Surprise</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-[10px] text-zinc-500 uppercase font-semibold">Full Plate</span>
+                  <span class="font-mono font-bold text-base text-brand-flame">₹220/-</span>
+                </div>
+              </div>
+              <div class="p-4 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-crimson/60 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-white">Kuch Bhi</h4>
+                  <p class="text-[11px] text-zinc-400 mt-1">Assorted Momos Basket</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-[10px] text-zinc-500 uppercase font-semibold">Full Plate</span>
+                  <span class="font-mono font-bold text-base text-brand-flame">₹230/-</span>
+                </div>
+              </div>
+              <div class="p-4 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-crimson/60 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-white">As U Wish</h4>
+                  <p class="text-[11px] text-zinc-400 mt-1">Custom Mixed Crunchy</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-[10px] text-zinc-500 uppercase font-semibold">Full Plate</span>
+                  <span class="font-mono font-bold text-base text-brand-flame">₹240/-</span>
+                </div>
+              </div>
+              <div class="p-4 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-crimson/60 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-white">Nahi tum Bolo</h4>
+                  <p class="text-[11px] text-zinc-400 mt-1">High-Spicy Afghani Feast</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-[10px] text-zinc-500 uppercase font-semibold">Full Plate</span>
+                  <span class="font-mono font-bold text-base text-brand-flame">₹250/-</span>
+                </div>
+              </div>
+              <div class="p-4 rounded-2xl bg-brand-surface/90 border border-brand-border hover:border-brand-crimson/60 transition-colors flex flex-col justify-between">
+                <div>
+                  <h4 class="text-sm font-bold text-white">Nahi Nahi Tum Bolo</h4>
+                  <p class="text-[11px] text-zinc-400 mt-1">Ultimate Deluxe Momo Combo with Extra Chutney</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                  <span class="text-[10px] text-zinc-500 uppercase font-semibold">Full Plate</span>
+                  <span class="font-mono font-bold text-base text-brand-flame">₹260/-</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Delivery Banner -->
+        <div class="p-6 sm:p-8 rounded-3xl border border-brand-border bg-gradient-to-r from-brand-surface via-brand-card to-brand-surface flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
+          <div class="flex items-center gap-4 text-center md:text-left">
+            <div class="w-14 h-14 rounded-2xl bg-brand-crimson/20 border border-brand-crimson/40 flex items-center justify-center text-brand-crimson text-2xl flex-shrink-0">
+              <i class="fa-solid fa-bell-concierge"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-white font-display">Craving Hot Momos Right Now at Home?</h4>
+              <p class="text-zinc-400 text-sm">We are live on Zomato & Swiggy across Kankarbagh, Rajendra Nagar, & Patna Central.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <a class="px-5 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm flex items-center gap-2 shadow-lg transition-all" href="https://www.zomato.com" rel="noopener noreferrer" target="_blank">
+              <span class="">Zomato</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+            <a class="px-5 py-2.5 rounded-full bg-amber-500 hover:bg-amber-600 text-zinc-950 font-black text-sm flex items-center gap-2 shadow-lg transition-all" href="https://www.swiggy.com" rel="noopener noreferrer" target="_blank">
+              <span class="">Swiggy</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: SignatureMenu -->
+
+    <!-- BEGIN: SecretChutneySpotlight -->
+    <section class="py-24 bg-brand-surface relative overflow-hidden border-t border-brand-border" data-purpose="chutney-feature" id="sauce-secret">
+      <!-- Back Fiery Glow -->
+      <div class="absolute -right-40 top-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-brand-lava/25 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Left: Image depiction of crunchy momos & deep red fiery chutney -->
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="relative rounded-3xl overflow-hidden border border-brand-crimson/50 shadow-glow-crimson group">
+              <img alt="Fiery red garlic dipping sauce bowl with hot crunchy kurkure momos" class="w-full h-auto object-cover group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4BZ1TKBdDJDe_rskLlkJvFLAw87V-B2NbgQnrZ8RUTHlwnC9yNdyj6SaRVHMIVhcUkjaS7xBZOmageR39r4SE4kp3X1WnA0uuWz03C1SrzNi9yiBS53xHigo5TTVd2zaxWk9VKQIcskUB-CDnXcHSJAz9nsLSAwPaMLRqss67m-OdUoAnqBeI6pXquQaZEB93lNCNrnen7Nmk_ryJvNYnlYjUoxmUorJFID1JQthzUlu0tkDXW3enPfptL_F3Puply84">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-flame">The Holy Grail</span>
+                <p class="text-xl font-bold text-white font-display">"Ek Katori Aur Dena Bhaiya!"</p>
+                <p class="text-xs text-zinc-300 mt-1">The phrase repeated 10,000 times everyday at our counter.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Right: The Recipe & Legend -->
+          <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-crimson/15 border border-brand-crimson/40 text-brand-crimson text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-fire"></i> Our Proprietary Fire
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-black font-display text-white tracking-tight leading-tight">
+              The Infamous Red Chutney <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-flame via-brand-crimson to-rose-500">
+                That People Travel Miles For.
+              </span>
+            </h2>
+            <p class="text-zinc-300 text-base sm:text-lg leading-relaxed">
+              In Bihar, a momo is only as legendary as its chutney. Ours is slow-cooked fresh twice every single day using fiery sun-dried chilies, charred garlic pods, sun-ripened tomatoes, and a blend of mountain herbs that warms your soul.
+            </p>
+            <!-- 3 Pillars of Sauce -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3">
+              <div class="bg-brand-card p-4 rounded-2xl border border-brand-border">
+                <div class="w-9 h-9 rounded-lg bg-brand-flame/20 flex items-center justify-center text-brand-flame mb-3">
+                  <i class="fa-solid fa-pepper-hot"></i>
+                </div>
+                <h4 class="font-bold text-white text-sm">Sun-Dried Chilies</h4>
+                <p class="text-xs text-zinc-400 mt-1">Smoky Byadgi & spicy Guntur chili blend for color and fiery kick.</p>
+              </div>
+              <div class="bg-brand-card p-4 rounded-2xl border border-brand-border">
+                <div class="w-9 h-9 rounded-lg bg-brand-amber/20 flex items-center justify-center text-brand-amber mb-3">
+                  <i class="fa-solid fa-mortar-pestle"></i>
+                </div>
+                <h4 class="font-bold text-white text-sm">Charred Garlic</h4>
+                <p class="text-xs text-zinc-400 mt-1">Crushed fresh garlic braised in hot oil for deep pungent warmth.</p>
+              </div>
+              <div class="bg-brand-card p-4 rounded-2xl border border-brand-border">
+                <div class="w-9 h-9 rounded-lg bg-brand-crimson/20 flex items-center justify-center text-brand-crimson mb-3">
+                  <i class="fa-solid fa-droplet"></i>
+                </div>
+                <h4 class="font-bold text-white text-sm">Tangy Herb Finish</h4>
+                <p class="text-xs text-zinc-400 mt-1">Zesty lemon tang and ground spices that cut through rich fillings.</p>
+              </div>
+            </div>
+            <!-- Heat Tolerance Meter -->
+            <div class="bg-brand-card/80 border border-brand-border p-4 rounded-2xl space-y-2">
+              <div class="flex justify-between text-xs font-bold text-zinc-300">
+                <span class="">Heat Level: Mild Street</span>
+                <span class="text-brand-crimson">Patna Street Volcano (8.5/10)</span>
+              </div>
+              <div class="w-full bg-zinc-800 rounded-full h-3 overflow-hidden p-0.5">
+                <div class="bg-gradient-to-r from-amber-400 via-brand-flame to-brand-crimson h-full rounded-full w-[85%]"></div>
+              </div>
+              <p class="text-[11px] text-zinc-400 italic">Warning: Keep chilled Coke or Sweet Lassi handy if you are a beginner.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: SecretChutneySpotlight -->
+
+    <!-- BEGIN: StallLegendStory -->
+    <section class="py-24 relative bg-brand-dark" data-purpose="stall-origin-story" id="stall-story">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Title -->
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-crimson/15 border border-brand-crimson/30 text-brand-crimson text-xs font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-store"></i> The Kankarbagh Legend
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black font-display text-white tracking-tight">
+            From a Humble Cart to Patna's Street Benchmark
+          </h2>
+          <p class="text-zinc-400 text-base sm:text-lg">
+            No fancy cutlery. No artificial PR. Just honest flame-fired momos, funny quirky banners, and crowds of students and families waiting happily for their turns.
+          </p>
+        </div>
+        <!-- Real Stall Photo Showcase Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          <!-- Photo 1: Stall Full Frontal -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="relative rounded-3xl overflow-hidden border border-brand-border bg-brand-surface shadow-2xl group">
+              <img alt="Authentic Afghani Momos street cart in Patna with signature cheeky banner" class="w-full h-[460px] object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyKUv6JFJZZmK7jKINXqXHcLumnmeq9_41p0c_X7iFdm7OUTB0diJiwsMl7uiltQxK9ykTIPn6z57LtVg4tvbsbWO9fRXyvhWKASRNWwndvSbx37P22sGbnNnj6O5dH5EhECBvBOSQwcOJi9xVZRUu7wdqaJafBDnh3-CxmftQ3nI9JST5IUqIgLHe8uiArW_Xl2bI6W3V7VBlwR97BajGIYiBwq33L98VPbgRxE4iKGeSrZQhcZP5TufNim-coTWll4Q">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <span class="bg-brand-crimson text-white text-[11px] font-black uppercase px-2.5 py-1 rounded-md tracking-wider">The Real Counter</span>
+                <h3 class="text-xl font-bold font-display text-white mt-2">The Steaming Steel Towers of Patna</h3>
+                <p class="text-xs text-zinc-300 mt-1">Where hundreds of fresh batches are steamed and fried over high flames right in front of your eyes.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Photo 2: Street Vibe & Seating -->
+          <div class="lg:col-span-6 space-y-4">
+            <div class="relative rounded-3xl overflow-hidden border border-brand-border bg-brand-surface shadow-2xl group">
+              <img alt="Students and customers enjoying fresh momos at the street stall" class="w-full h-[460px] object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvJVCXpLBhIXsVhjHVnOayJWH6qX5_cSLspkHNqu4PlsVo5o0wh9jOAUVy2Zfwz2z99ddkhAj-K5DbsU6jigQSuPQCKpzd6WqyBTqOLebQr9qpLrd6QUjlZaOvgXjV7_MvYvgVuV-IYytmjZKZ9_qOOs5JqcKCBY_GjAFl1Y5-x9L722rFp342tvfNhzE8nOxqFvTdbeaUm3Pe-MIgnPQ35UwQ2cfY5AblP_KFgqRN5mjORwJKjfb3io3q1y-g60zzLc0">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <span class="bg-brand-amber text-zinc-950 text-[11px] font-black uppercase px-2.5 py-1 rounded-md tracking-wider">Curbside Vibes</span>
+                <h3 class="text-xl font-bold font-display text-white mt-2">"Chalo Momos Khalo, Padai Me Kya Rakha Hai!"</h3>
+                <p class="text-xs text-zinc-300 mt-1">Our famous street banner humor that makes school kids and working professionals smile before their first bite.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Feature Grid: What Makes The Stall Special -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-brand-surface p-7 rounded-3xl border border-brand-border space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-brand-crimson/15 border border-brand-crimson/30 flex items-center justify-center text-brand-crimson text-xl">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h4 class="text-lg font-bold font-display text-white">4:00 PM to 10:30 PM Daily</h4>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Every evening, our burners roar to life. Catch us right after tuition hours or for late night munchies with friends.
+            </p>
+          </div>
+          <div class="bg-brand-surface p-7 rounded-3xl border border-brand-border space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-brand-amber/15 border border-brand-amber/30 flex items-center justify-center text-brand-amber text-xl">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <h4 class="text-lg font-bold font-display text-white">Student-Pocket Friendly</h4>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Loaded plates ranging ₹70 to ₹130. Premium taste, high portion size, and honest pricing that students swear by.
+            </p>
+          </div>
+          <div class="bg-brand-surface p-7 rounded-3xl border border-brand-border space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h4 class="text-lg font-bold font-display text-white">Hygiene & Fresh Oil</h4>
+            <p class="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              Clean food prep, filtered water for dough and chutneys, and zero reused rancid frying oils. Street taste with clean conscience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: StallLegendStory -->
+
+    <!-- BEGIN: FoodieReviewsWall -->
+    <section class="py-20 bg-brand-surface/70 border-t border-brand-border relative" data-purpose="customer-reviews" id="reviews">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <span class="text-brand-crimson text-xs uppercase font-extrabold tracking-wider">Unfiltered Love</span>
+            <h2 class="text-3xl sm:text-4xl font-black font-display text-white tracking-tight mt-1">
+              What Patna’s Foodies Are Saying
+            </h2>
+          </div>
+          <div class="flex items-center gap-2 text-zinc-400 text-sm">
+            <span class="text-amber-400 font-bold flex items-center gap-1">
+              <i class="fa-solid fa-star"></i> 4.8 Rating
+            </span>
+            <span class="">from Kankarbagh & beyond</span>
+          </div>
+        </div>
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Review 1 -->
+          <div class="bg-brand-card p-6 rounded-3xl border border-brand-border space-y-4">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed">
+              "The tagline outside made me laugh, but the Kurkure Momos actually blew me away! The crunch stays intact even after bringing them home. And that red chutney is deadly in the best way possible."
+            </p>
+            <div class="flex items-center gap-3 pt-2 border-t border-brand-border/60">
+              <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-brand-crimson">
+                AK
+              </div>
+              <div>
+                <h5 class="text-xs font-bold text-white">Aniket Kumar</h5>
+                <p class="text-[11px] text-zinc-500">Local Guide • Kankarbagh</p>
+              </div>
+            </div>
+          </div>
+          <!-- Review 2 -->
+          <div class="bg-brand-card p-6 rounded-3xl border border-brand-border space-y-4">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed">
+              "Best Afghani Momos in whole Patna hands down. Creamy, subtle smoky charcoal flavor, and generous filling. Me and my KV school friends come here at least 3 times a week."
+            </p>
+            <div class="flex items-center gap-3 pt-2 border-t border-brand-border/60">
+              <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-brand-amber">
+                SM
+              </div>
+              <div>
+                <h5 class="text-xs font-bold text-white">Shambhavi Mishra</h5>
+                <p class="text-[11px] text-zinc-500">KV Student • Jogipur</p>
+              </div>
+            </div>
+          </div>
+          <!-- Review 3 -->
+          <div class="bg-brand-card p-6 rounded-3xl border border-brand-border space-y-4">
+            <div class="flex items-center gap-1 text-amber-400 text-sm">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-zinc-300 text-sm leading-relaxed">
+              "Ordered on Zomato during late evening rains. Delivered sizzling hot with extra chutney sachets. Definitely worth the hype. Hotter than your ex for real!"
+            </p>
+            <div class="flex items-center gap-3 pt-2 border-t border-brand-border/60">
+              <div class="w-9 h-9 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs text-rose-400">
+                RP
+              </div>
+              <div>
+                <h5 class="text-xs font-bold text-white">Rohan Pandey</h5>
+                <p class="text-[11px] text-zinc-500">Zomato Foodie</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: FoodieReviewsWall -->
+
+    <!-- BEGIN: StallLocationSection -->
+    <section class="py-24 relative bg-brand-dark" data-purpose="stall-location" id="location">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-brand-card via-brand-surface to-brand-card rounded-3xl border border-brand-border p-8 md:p-12 relative overflow-hidden shadow-2xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <!-- Location Details -->
+            <div class="lg:col-span-7 space-y-6">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-crimson/15 border border-brand-crimson/30 text-brand-crimson text-xs font-bold uppercase">
+                <i class="fa-solid fa-map-pin"></i> Direct Coordinates
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-black font-display text-white">
+                Drop By The Counter in Kankarbagh
+              </h2>
+              <!-- Exact Street Address -->
+              <div class="space-y-4 text-zinc-300">
+                <div class="flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-brand-dark flex items-center justify-center text-brand-crimson border border-brand-border flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-white text-base">Afghani Momo Stall</h4>
+                    <p class="text-sm text-zinc-400 mt-0.5 leading-relaxed">
+                      Kendriya Vidyalaya Road, Near Harrison Hospital, Vidyapuri, Jogipur, Kankarbagh, Bankman Colony, Patna, Bihar 800020
+                    </p>
+                  </div>
+                </div>
+                <!-- Phone Numbers -->
+                <div class="flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-brand-dark flex items-center justify-center text-brand-amber border border-brand-border flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-white text-base">Direct Stall Helpline / Bulk Orders</h4>
+                    <p class="text-sm text-zinc-300 mt-0.5 font-mono">
+                      <a class="hover:text-brand-crimson transition-colors font-semibold" href="tel:8863028639">+91 8863028639</a> / 
+                      <a class="hover:text-brand-crimson transition-colors font-semibold" href="tel:7004949432">+91 7004949432</a>
+                    </p>
+                  </div>
+                </div>
+                <!-- Hours -->
+                <div class="flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-xl bg-brand-dark flex items-center justify-center text-emerald-400 border border-brand-border flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-clock"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-white text-base">Counter Timings</h4>
+                    <p class="text-sm text-zinc-400 mt-0.5">
+                      Monday to Sunday : 4:00 PM – 10:30 PM (No weekly off)
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Action buttons -->
+              <div class="flex flex-wrap gap-4 pt-4">
+                <a class="px-6 py-3 rounded-full bg-brand-crimson hover:bg-brand-lava text-white text-sm font-bold flex items-center gap-2 shadow-lg shadow-brand-crimson/30 hover:scale-105 transition-all" href="https://maps.google.com/?q=Kendriya+Vidyalaya+Road+Near+Harrison+Hospital+Kankarbagh+Patna" rel="noopener noreferrer" target="_blank">
+                  <i class="fa-solid fa-diamond-turn-right"></i> Open in Google Maps
+                </a>
+                <a class="px-6 py-3 rounded-full bg-brand-dark border border-brand-border hover:border-brand-crimson text-zinc-200 text-sm font-semibold flex items-center gap-2 transition-all" href="tel:8863028639">
+                  <i class="fa-solid fa-phone"></i> Call Stall
+                </a>
+              </div>
+            </div>
+            <!-- Quick QR / Order Card Box -->
+            <div class="lg:col-span-5 bg-brand-dark p-7 rounded-2xl border border-brand-border flex flex-col items-center text-center space-y-4">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-lava via-brand-crimson to-brand-flame flex items-center justify-center text-white text-3xl shadow-glow-flame">
+                <i class="fa-solid fa-qrcode"></i>
+              </div>
+              <h3 class="text-xl font-bold font-display text-white">Pay Via UPI & Takeout Fast</h3>
+              <p class="text-xs text-zinc-400 max-w-xs">
+                We support Paytm, PhonePe, GPay & BHIM UPI at the stall counter for quick scan-and-go snacking.
+              </p>
+              <div class="flex items-center gap-3 pt-2 text-xs font-semibold text-zinc-300">
+                <span class="px-3 py-1 rounded bg-zinc-800">Paytm</span>
+                <span class="px-3 py-1 rounded bg-zinc-800">GPay</span>
+                <span class="px-3 py-1 rounded bg-zinc-800">PhonePe</span>
+              </div>
+              <div class="w-full pt-4 border-t border-brand-border/60">
+                <p class="text-xs text-zinc-400">Search on Food Apps:</p>
+                <p class="text-sm font-extrabold text-brand-crimson mt-1 tracking-wide">"Afghani Momo Kankarbagh"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END: StallLocationSection -->
+
+    <!-- BEGIN: MainFooter -->
+    <footer class="border-t border-brand-border bg-brand-dark text-zinc-400 pt-16 pb-12" data-purpose="site-footer">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-brand-border/60">
+          <!-- Brand column -->
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-lava via-brand-crimson to-brand-flame flex items-center justify-center text-white">
+                <i class="fa-solid fa-fire text-lg"></i>
+              </div>
+              <span class="font-display font-extrabold text-2xl text-white">
+                AFGHANI <span class="text-brand-crimson">MOMO</span>
+              </span>
+            </div>
+            <p class="text-sm text-zinc-400 max-w-sm leading-relaxed">
+              Patna's street food benchmark since inception. Hot dumplings, crazy crunches, unapologetic spicy sauce, and smiles.
+            </p>
+            <p class="text-xs text-brand-flame font-mono font-medium">
+              "My Momos Are Hotter Than Your Ex, Better than your Next"
+            </p>
+          </div>
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-display">Specialties</h4>
+            <ul class="space-y-2.5 text-xs sm:text-sm">
+              <li><a class="hover:text-brand-crimson transition-colors" href="#menu">Crunchy Kurkure Momos</a></li>
+              <li><a class="hover:text-brand-crimson transition-colors" href="#menu">Afghani Malai Dumplings</a></li>
+              <li><a class="hover:text-brand-crimson transition-colors" href="#menu">Firecracker Schezwan</a></li>
+              <li><a class="hover:text-brand-crimson transition-colors" href="#menu">Kulhad Pizza Fusion</a></li>
+              <li><a class="hover:text-brand-crimson transition-colors" href="#sauce-secret">Fiery Red Chili Chutney</a></li>
+            </ul>
+          </div>
+          <!-- Delivery Links -->
+          <div>
+            <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-display">Order Online</h4>
+            <ul class="space-y-2.5 text-xs sm:text-sm">
+              <li><a class="hover:text-rose-400 transition-colors" href="https://www.zomato.com">Zomato Delivery</a></li>
+              <li><a class="hover:text-amber-400 transition-colors" href="https://www.swiggy.com">Swiggy Instafood</a></li>
+              <li><a class="hover:text-brand-crimson transition-colors" href="tel:8863028639">Direct Stall Takeout</a></li>
+              <li><a class="hover:text-brand-crimson transition-colors" href="#location">Curbside Pickup</a></li>
+            </ul>
+          </div>
+          <!-- Social & Tag -->
+          <div>
+            <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4 font-display">Connect</h4>
+            <p class="text-xs text-zinc-400 mb-3">Tag us on Instagram in your momo reels:</p>
+            <a class="inline-flex items-center gap-2 text-sm text-pink-400 font-bold hover:underline mb-4" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+              <i class="fa-brands fa-instagram text-lg"></i> @afghani.momo
+            </a>
+            <p class="text-[11px] text-zinc-500">Kankarbagh, Patna, Bihar, PIN: 800020</p>
+          </div>
+        </div>
+        <!-- Copyright & Bottom Note -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+          <p>© 2025 Afghani Momo (Patna). All rights reserved. Handcrafted with passion and spices.</p>
+          <p class="flex items-center gap-2">
+            <span>Made for foodies who love high heat</span>
+            <span class="text-brand-crimson">🌶️</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- END: MainFooter -->
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
