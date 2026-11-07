@@ -13,10 +13,5 @@ A modern and responsive website designed for a local momos business, featuring a
 - CSS3
 - JavaScript
 
-### 👨‍💻 Developer
-**Shivam Kumar**
-
-⭐ If you like this project, don't forget to give it a star!
-
 
 
