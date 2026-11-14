@@ -14,7 +14,7 @@ A modern and responsive website designed for a local momos business, featuring a
 - JavaScript
 
 
-⭐ If you like this project, consider giving it a star!
+
 
 
 
